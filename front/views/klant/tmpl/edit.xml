@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <layout title="COM_BIXMAILING_KLANT_VIEW_EDIT_TITLE" option="COM_BIXMAILING_KLANT_VIEW_EDIT_OPTION">
+        <message>
+            <![CDATA[COM_BIXMAILING_KLANT_VIEW_EDIT_DESC]]>
+        </message>
+    </layout>
+    <fields name="request">
+        <fieldset name="request">
+        </fieldset>
+    </fields>
+    <fields name="params">
+        <fieldset name="basic" label="COM_BIXMAILING_PARAMS_TITLE_COMPONENT">
+        </fieldset>
+    </fields>
+</metadata>

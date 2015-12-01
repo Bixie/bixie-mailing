@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset name="basic">
+        <field name="id" type="text" default="0" label="BIX_MASSA_ID"
+               readonly="true" class="uk-form-width-mini uk-readonly" labelclass="uk-form-label"
+               description="JGLOBAL_FIELD_ID_DESC"/>
+
+        <field name="user_id" type="user" class="uk-form-width-medium" labelclass="uk-form-label"
+               required="true" readonly="false" label="COM_BIXMAILING_MASSAMAIL_USERID" description=""/>
+
+        <field name="type" type="bixlist" class="uk-form-width-medium" labelclass="uk-form-label" size="1"
+               label="COM_BIXMAILING_MASSAMAIL_TYPE"
+               required="true" description="JFIELD_PUBLISHED_DESC"
+               default="">
+            <option value="">BIX_MAILING_SELECT_MAILINGTYPE</option>
+            <option value="massa_insteek_enkel">BIX_MAILING_TYPE_MASSA_INSTEEK_ENKEL</option>
+            <option value="massa_insteek_dubbel">BIX_MAILING_TYPE_MASSA_INSTEEK_DUBBEL</option>
+            <option value="massa_insteek_meer">BIX_MAILING_TYPE_MASSA_INSTEEK_MEER</option>
+        </field>
+
+        <field name="naam" type="bixtext" size="40" class="uk-form-width-large uk-form-large" labelclass="uk-form-label"
+               label="COM_BIXMAILING_MASSAMAIL_NAAM" description=""
+               required="true" readonly="true"
+               filter="safehtml"/>
+
+        <field name="aang" type="bixlist" class="uk-form-width-medium" size="1"
+               label="COM_BIXMAILING_MASSAMAIL_AANGETEKEND"
+               description="BIX_MASSA_AANGETEKEND_DESC"
+               default="0">
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+
+        <field name="opmerking" type="textarea" class="uk-form-width-large" default=""
+               label="COM_BIXMAILING_MASSAMAIL_OPMERKINGEN" description="" rows="5" cols="50"/>
+
+        <field name="bestanden" type="hidden" multiple="true"/>
+
+        <field name="status" type="bixlist" class="uk-form-width-medium" labelclass="uk-form-label" size="1"
+               label="COM_BIXMAILING_MASSAMAIL_STATUS"
+               description=""
+               default="nieuw">
+            <option value="nieuw">BIX_MAILING_STATUS_NIEUW</option>
+            <option value="verwerkt">BIX_MAILING_STATUS_VERWERKT</option>
+        </field>
+
+    </fieldset>
+
+    <fieldset name="params">
+        <field name="state" type="bixlist" class="uk-form-width-medium" size="1"
+               label="JSTATUS"
+               description="JFIELD_PUBLISHED_DESC"
+               default="1">
+            <option value="1">JPUBLISHED</option>
+            <option value="0">JUNPUBLISHED</option>
+            <option value="2">JARCHIVED</option>
+            <option value="-2">JTRASHED</option>
+        </field>
+        <fields name="params">
+            <field name="test" type="bixtext" class="uk-form-width-medium" label="test"/>
+
+        </fields>
+    </fieldset>
+
+    <field name="asset_id" type="hidden" filter="unset"/>
+
+    <field name="rules" type="rules" label="JFIELD_RULES_LABEL"
+           translate_label="false" class="inputbox" filter="rules"
+           component="com_bixmailing" section="massa" validate="rules"/>
+
+</form>

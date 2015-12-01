@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset name="basic">
+        <field name="id" type="text" default="0" label="BIX_MAILING_ID"
+               readonly="true" class="uk-form-width-mini uk-readonly" labelclass="uk-form-label"
+               description="JGLOBAL_FIELD_ID_DESC"/>
+
+        <field name="user_id" type="user" class="uk-form-width-medium" labelclass="uk-form-label"
+               required="false" readonly="false" label="BIX_MAILING_USERID" description=""/>
+
+        <field name="type" type="bixlist" class="uk-form-width-medium" labelclass="uk-form-label" size="1"
+               label="BIX_MAILING_TYPE"
+               required="true" description=""
+               default="">
+            <option value="">BIX_MAILING_SELECT_MAILINGTYPE</option>
+            <option value="gls">BIX_MAILING_TYPE_GLS</option>
+            <option value="freight">BIX_MAILING_TYPE_GLS_FREIGHT</option>
+            <option value="aangetekend">BIX_MAILING_TYPE_AANGETEKEND</option>
+            <option value="aangetekend_buitenland">BIX_MAILING_TYPE_AANGETEKEND_BUITENLAND</option>
+            <option value="aangetekend_pakket_10">BIX_MAILING_TYPE_AANGETEKEND_PAKKET_10</option>
+            <option value="massa">BIX_MAILING_TYPE_MASSA</option>
+            <option value="massa_insteek_enkel">BIX_MAILING_TYPE_MASSA_INSTEEK_ENKEL</option>
+            <option value="massa_insteek_dubbel">BIX_MAILING_TYPE_MASSA_INSTEEK_DUBBEL</option>
+            <option value="massa_insteek_meer">BIX_MAILING_TYPE_MASSA_INSTEEK_MEER</option>
+            <option value="brief">BIX_MAILING_TYPE_BRIEF</option>
+        </field>
+
+        <field name="naam" type="bixtext" size="40" class="uk-form-width-large uk-form-large" labelclass="uk-form-label"
+               label="BIX_MAILING_NAAM" description=""
+               required="true" readonly="true"
+               filter="safehtml"/>
+
+        <field name="vervoerder" type="bixlist" class="uk-form-width-medium" labelclass="uk-form-label" size="1"
+               label="BIX_MAILING_VERVOERDERID"
+               description=""
+               required="true" default="">
+            <option value="NONE">BIX_MAILING_VERVOERDER_NONE</option>
+            <option value="GLS">BIX_MAILING_VERVOERDER_GLS</option>
+            <option value="POSTNL">BIX_MAILING_VERVOERDER_POSTNL</option>
+        </field>
+
+        <field name="gewicht" type="bixtext" size="40" class="uk-form-width-small" labelclass="uk-form-label"
+               label="BIX_MAILING_GEWICHT" description=""
+               required="false" readonly="false"
+               filter="safehtml"/>
+
+        <field name="aangemeld" type="date" size="40" class="uk-form-width-small" labelclass="uk-form-label"
+               label="BIX_MAILING_AANGEMELD" description=""
+               required="false" readonly="true"
+               filter="safehtml"/>
+
+        <field name="aang" type="bixlist" class="uk-form-width-medium" size="1"
+               label="COM_BIXMAILING_MASSAMAIL_AANGETEKEND"
+               description="BIX_MASSA_AANGETEKEND_DESC"
+               default="0">
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+
+        <field name="trace_url" type="bixtext" size="40" class="uk-form-width-large" labelclass="uk-form-label"
+               label="BIX_MAILING_TRACE_URL" description=""
+               required="false"
+               filter="safehtml"/>
+
+        <field name="trace_nl" type="bixtext" size="40" class="uk-form-width-medium" labelclass="uk-form-label"
+               label="BIX_MAILING_TRACE_NL" description=""
+               required="false"
+               filter="safehtml"/>
+
+        <field name="trace_btl" type="bixtext" size="40" class="uk-form-width-medium" labelclass="uk-form-label"
+               label="BIX_MAILING_TRACE_BTL" description=""
+               required="false"
+               filter="safehtml"/>
+
+        <field name="trace_gp" type="bixtext" size="40" class="uk-form-width-medium" labelclass="uk-form-label"
+               label="BIX_MAILING_TRACE_GP" description=""
+               required="false"
+               filter="safehtml"/>
+
+    </fieldset>
+    <fieldset name="adres">
+        <field name="adresnaam" type="bixtext" size="40" class="uk-form-width-large" labelclass="uk-form-label"
+               label="BIX_MAILING_ADRES_NAAM" description=""
+               required="true" readonly="false"
+               filter="safehtml"/>
+
+        <field name="straat" type="bixtext" size="40" class="uk-form-width-large" labelclass="uk-form-label"
+               label="BIX_MAILING_ADRES_STRAAT" description=""
+               required="true" readonly="false"
+               filter="safehtml"/>
+
+        <field name="huisnummer" type="bixtext" size="40" class="uk-form-width-small" labelclass="uk-form-label"
+               label="BIX_MAILING_ADRES_HUISNUMMER" description=""
+               required="false" readonly="false"
+               filter="safehtml"/>
+
+        <field name="huisnummer_toevoeging" type="bixtext" size="40" class="uk-form-width-small"
+               labelclass="uk-form-label"
+               label="BIX_MAILING_ADRES_HUISNUMMER_TOEV" description=""
+               required="false" readonly="false"
+               filter="safehtml"/>
+
+        <field name="postcode" type="bixtext" size="40" class="uk-form-width-small" labelclass="uk-form-label"
+               label="BIX_MAILING_ADRES_POSTCODE" description=""
+               required="false" readonly="false"
+               filter="safehtml"/>
+
+        <field name="plaats" type="bixtext" size="40" class="uk-form-width-large" labelclass="uk-form-label"
+               label="BIX_MAILING_ADRES_PLAATS" description=""
+               required="true" readonly="false"
+               filter="safehtml"/>
+
+        <field name="land" type="bixtext" size="40" class="uk-form-width-mini" labelclass="uk-form-label"
+               label="BIX_MAILING_ADRES_LAND" description=""
+               required="true" readonly="false"
+               filter="safehtml"/>
+
+    </fieldset>
+
+    <fieldset name="administratie">
+        <field name="referentie" type="bixtext" size="40" class="uk-form-width-large" labelclass="uk-form-label"
+               label="BIX_MAILING_REFERENTIE" description=""
+               required="false" readonly="false"
+               filter="safehtml"/>
+
+        <field name="klantnummer" type="bixtext" size="40" class="uk-form-width-large" labelclass="uk-form-label"
+               label="BIX_MAILING_KLANTCODE" description=""
+               required="false" readonly="false"
+               filter="safehtml"/>
+
+        <field name="importbestand" type="bixtext" size="40" class="uk-form-width-large" labelclass="uk-form-label"
+               label="BIX_MAILING_IMPORTBESTAND" description=""
+               required="false" readonly="true"
+               filter="safehtml"/>
+
+    </fieldset>
+
+    <fieldset name="params">
+        <field name="status" type="bixlist" class="uk-form-width-medium" labelclass="uk-form-label" size="1"
+               label="BIX_MAILING_STATUS"
+               description=""
+               default="nieuw">
+            <option value="nieuw">BIX_MAILING_STATUS_NIEUW</option>
+            <option value="verwerkt">BIX_MAILING_STATUS_VERWERKT</option>
+        </field>
+
+        <field name="state" type="bixlist" class="uk-form-width-medium" size="1"
+               label="JSTATUS"
+               description="JFIELD_PUBLISHED_DESC"
+               default="1">
+            <option value="1">JPUBLISHED</option>
+            <option value="0">JUNPUBLISHED</option>
+            <option value="2">JARCHIVED</option>
+            <option value="-2">JTRASHED</option>
+        </field>
+        <fields name="params">
+            <field name="vCash" type="bixtext" size="40" class="uk-form-width-medium" labelclass="uk-form-label"
+                   label="BIX_MAILING_VCASH" description=""
+                   required="false" readonly="false"
+                   filter="safehtml"/>
+
+            <field name="Exp" type="bixtext" size="40" class="uk-form-width-medium" labelclass="uk-form-label"
+                   label="BIX_MAILING_EXP" description=""
+                   required="false" readonly="false"
+                   filter="safehtml"/>
+
+            <field name="SMS" type="bixtext" size="40" class="uk-form-width-medium" labelclass="uk-form-label"
+                   label="BIX_MAILING_SMS" description=""
+                   required="false" readonly="false"
+                   filter="safehtml"/>
+
+            <field name="klantordernummer" type="bixtext" size="40" class="uk-form-width-medium"
+                   labelclass="uk-form-label"
+                   label="BIX_MAILING_KLANTORDERNR" description=""
+                   required="false" readonly="false"
+                   filter="safehtml"/>
+
+            <field name="ordernummer" type="bixtext" size="40" class="uk-form-width-medium" labelclass="uk-form-label"
+                   label="BIX_MAILING_ORDERNR" description=""
+                   required="false" readonly="false"
+                   filter="safehtml"/>
+
+            <field name="zonecode" type="bixtext" size="40" class="uk-form-width-medium" labelclass="uk-form-label"
+                   label="BIX_MAILING_ZONECODE" description=""
+                   required="false" readonly="false"
+                   filter="safehtml"/>
+
+        </fields>
+    </fieldset>
+
+    <field name="asset_id" type="hidden" filter="unset"/>
+
+    <field name="rules" type="rules" label="JFIELD_RULES_LABEL"
+           translate_label="false" class="inputbox" filter="rules"
+           component="com_bixmailing" section="massa" validate="rules"/>
+
+</form>

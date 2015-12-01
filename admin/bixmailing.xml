@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="2.5" method="upgrade">
+	<name>com_bixmailing</name>
+	<creationDate>2014-03-03</creationDate>
+	<copyright>Copyright (C) 2014. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<author>Matthijs Alles</author>
+	<authorEmail>info@bixie.nl</authorEmail>
+	<authorUrl>www.bixie.nl</authorUrl>
+	<version>0.0.1-dev</version>
+	<description>COM_BIXMAILING_XML_DESCRIPTION</description>
+	<scriptfile>install.script.php</scriptfile>
+	<install> <!-- Runs on install -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<defcontent> <!-- Runs on install -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/content.mysql.utf8.sql</file>
+		</sql>
+	</defcontent>
+	<uninstall> <!-- Runs on uninstall -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+	<update> <!-- Runs on update; New in 2.5 -->
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+	<updateservers>
+	</updateservers>
+	<!-- Site Main File Copy Section -->
+	<files folder="frontend">
+		<filename>index.html</filename>
+		<filename>bixmailing.php</filename>
+		<filename>controller.php</filename>
+		<filename>router.php</filename>
+		<folder>assets</folder>
+		<folder>views</folder>
+		<folder>models</folder>
+		<folder>controllers</folder>
+		<folder>helpers</folder>
+	</files>
+	<!-- Media default files -->
+	<media folder="media" destination="printshop">
+		<filename>index.html</filename>
+		<folder>mail</folder>
+		<folder>pdf</folder>
+		<folder>icons</folder>
+		<folder>system</folder>
+	</media>
+	<languages folder="frontend">
+		<language tag="nl-NL">language/nl-NL/nl-NL.com_bixmailing.ini</language>
+	</languages>
+	<administration>
+		<menu img="../administrator/components/com_bixmailing/assets/images/icon-16-bix-mailing.png">COM_BIXMAILING</menu>
+		<submenu>
+			<menu link="option=com_bixmailing&amp;view=mailings" view="mailings" img="../administrator/components/com_bixmailing/assets/images/icon-16-mailing.png" alt="Bixmailing/Mailings">COM_BIXMAILING_MAILINGS</menu>
+		</submenu>
+		<files folder="administrator">
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>
+			<filename>index.html</filename>
+			<filename>bixmailing.php</filename>
+			<folder>assets</folder>
+			<folder>classes</folder>
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>models</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+		</files>
+		<languages folder="administrator">
+			<language tag="nl-NL">language/nl-NL/nl-NL.com_bixmailing.ini</language>
+			<language tag="nl-NL">language/nl-NL/nl-NL.com_bixmailing.sys.ini</language>
+		</languages>
+	</administration>
+</extension>
+

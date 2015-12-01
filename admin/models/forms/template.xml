@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset name="basic">
+        <field name="id" type="text" default="0" label="BIX_MAILING_TEMPLATE_ID"
+               readonly="true" class="uk-form-width-mini uk-readonly" labelclass="uk-form-label"
+               description="JGLOBAL_FIELD_ID_DESC"/>
+
+        <field name="type" type="bixlist" class="uk-form-width-medium" labelclass="uk-form-label" size="1"
+               label="BIX_MAILING_TEMPLATE_TYPE"
+               required="true" description="JFIELD_PUBLISHED_DESC"
+               default="">
+            <option value="">BIX_MAILING_SELECT_MAILEVENT</option>
+            <option value="BEVESTIG">COM_BIXMAILING_MAIL_BEVESTIG</option>
+            <option value="TRACKTRACE">COM_BIXMAILING_MAIL_TRACKTRACE</option>
+            <option value="MASSAMAIL">COM_BIXMAILING_MAIL_MASSAMAIL</option>
+            <option value="TRACECOMBI">COM_BIXMAILING_MAIL_TRACECOMBI</option>
+            <option value="AFMELDEN">COM_BIXMAILING_MAIL_AFMELDEN</option>
+            <option value="UITNODIGEN">COM_BIXMAILING_MAIL_UITNODIGEN</option>
+        </field>
+
+        <field name="onderwerp" type="bixtext" size="40" class="uk-form-width-large uk-form-large"
+               labelclass="uk-form-label"
+               label="BIX_MAILING_TEMPLATE_ONDERWERP" description=""
+               required="true" filter="safehtml"/>
+
+        <field name="content" type="bixmarkdown" cols="30" rows="5" class="" labelclass="uk-form-label"
+               label="BIX_MAILING_TRACE" description=""
+               required="false" split="true"
+               filter="safehtml"/>
+
+    </fieldset>
+
+    <fieldset name="params">
+        <field name="state" type="bixlist" class="uk-form-width-medium" size="1"
+               label="JSTATUS"
+               description="JFIELD_PUBLISHED_DESC"
+               default="1">
+            <option value="1">JPUBLISHED</option>
+            <option value="0">JUNPUBLISHED</option>
+            <option value="2">JARCHIVED</option>
+            <option value="-2">JTRASHED</option>
+        </field>
+        <fields name="params">
+
+        </fields>
+    </fieldset>
+</form>

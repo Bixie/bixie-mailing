@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_BIXMAILING_DASHBOARD_MENU_DEFAULT" option="COM_BIXMAILING_DASHBOARD_VIEW_DEFAULT_OPTION">
+		<message>
+			<![CDATA[COM_BIXMAILING_DASHBOARD_MENU_DEFAULT_DESC]]>
+		</message>
+	</layout>
+	<fields name="request">
+		<fieldset name="request">
+		<!-- 	<field name="catid" type="Bixcategories" size="4" multiple="true"
+				label="COM_BIXMAILING_PRODUCTEN_MENU_CATEGORIES"
+				description="COM_BIXMAILING_PRODUCTEN_MENU_CATEGORIES_DESC"
+				required="true"
+				default="0"	/> maxOptions="0" maxWidth="0" combo="false" -->
+		</fieldset>
+	</fields>
+	<fields name="params">
+		<fieldset name="basic" label="COM_BIXMAILING_PARAMS_TITLE_COMPONENT">
+		</fieldset>
+	</fields>
+</metadata>

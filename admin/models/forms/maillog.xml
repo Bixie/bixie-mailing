@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset name="basic">
+        <field name="id" type="text" default="0" label="BIX_MAILING_TEMPLATE_ID"
+               readonly="true" class="uk-form-width-mini uk-readonly" labelclass="uk-form-label"
+               description="JGLOBAL_FIELD_ID_DESC"/>
+
+        <field name="mailing_id" type="text" default="0" label="BIX_MAILING_ID"
+               readonly="true" class="uk-form-width-mini uk-readonly" labelclass="uk-form-label"
+               description="JGLOBAL_FIELD_ID_DESC"/>
+
+        <field name="massa_id" type="text" default="0" label="BIX_MASSA_ID"
+               readonly="true" class="uk-form-width-mini uk-readonly" labelclass="uk-form-label"
+               description="JGLOBAL_FIELD_ID_DESC"/>
+
+        <field name="user_id" type="user" class="uk-form-width-medium" labelclass="uk-form-label"
+               required="true" readonly="true" label="BIX_MAILING_USERID" description=""/>
+
+        <field name="ontvangers" type="bixtext" size="40" class="uk-form-width-large" labelclass="uk-form-label"
+               label="COM_BIXMAILING_MAILLOG_ONTVANGERS" description="" readonly="true"
+               required="true" filter="safehtml"/>
+
+        <field name="onderwerp" type="bixtext" size="40" class="uk-form-width-large uk-form-large"
+               labelclass="uk-form-label"
+               label="COM_BIXMAILING_MAILLOG_ONDERWERP" description="" readonly="true"
+               required="true" filter="safehtml"/>
+
+        <field name="tekst" type="textarea" class="uk-form-width-large" labelclass="uk-form-label"
+               label="COM_BIXMAILING_MAILLOG_TEKST" description=""
+               required="false" readonly="true"
+               filter="safehtml"/>
+
+    </fieldset>
+</form>

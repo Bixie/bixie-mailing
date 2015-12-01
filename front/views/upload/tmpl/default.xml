@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_BIXMAILING_UPLOAD_MENU" option="COM_BIXMAILING_UPLOAD_VIEW_DEFAULT_OPTION">
+		<message>
+			<![CDATA[COM_BIXMAILING_UPLOAD_MENU_DESC]]>
+		</message>
+	</layout>
+	<fields name="request">
+		<fieldset name="request">
+		</fieldset>
+	</fields>
+	<fields name="params">
+		<fieldset name="basic" label="COM_BIXMAILING_PARAMS_TITLE_COMPONENT">
+		</fieldset>
+	</fields>
+</metadata>

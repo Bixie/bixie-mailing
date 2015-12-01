@@ -1,0 +1,64 @@
+/**
+ *	com_bixmailing - Mailings for Joomla
+ *  Copyright (C) 2014 Matthijs Alles
+ *	Bixie.nl
+ *
+ */
+[class*='bix-file-icon'] {
+    padding-left: 55px;
+    min-height: 32px;
+}
+
+.bix-file-icon-gls {
+    background: url("../images/icon-32-gls.png") 0 50% no-repeat;
+}
+
+.bix-file-icon-postnl {
+    background: url("../images/icon-32-postnl.png") 0 50% no-repeat;
+}
+
+.bix-file-icon-excel {
+    background: url("../images/icon-32-excel.png") 0 50% no-repeat;
+}
+
+.bix-file-icon-pdf {
+    background: url("../images/icon-32-pdf.png") 0 50% no-repeat;
+}
+
+[class*='bix-icon'] {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+}
+
+.bix-icon-gls {
+    background: url("../images/icon-16-gls.png") 30% 75% no-repeat;
+}
+
+.bix-icon-postnl {
+    background: url("../images/icon-16-postnl.png") 30% 75% no-repeat;
+}
+
+.bix-dropbox {
+    padding: 15px;
+    border: 1px dashed #a2a2a2;
+    background: #fcfcfc;
+}
+
+.bix-dropbox.uk-active {
+    border-color: #177110;
+    background: #fff;
+}
+
+.bix-tab > div {
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+.bix-tab.uk-active > div {
+    background: #fff;
+}
+
+li.bix-uploaddata .uk-sticky.uk-active > div {
+    box-shadow: 0 3px 3px -2px #a2a2a2;
+}

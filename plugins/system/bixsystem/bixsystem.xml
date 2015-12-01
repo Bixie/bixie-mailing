@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="system"  method="upgrade">
+	<name>Bixie System plugin</name>
+	<author>Bixie</author>
+	<creationDate>Feb 2014</creationDate>
+	<copyright>Copyright (C) 2014 Bixie</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>admin@bixie.nl</authorEmail>
+	<authorUrl>www.bixie.nl</authorUrl>
+	<version>1.0.0</version>
+	<description>PLG_SYSTEM_BIXIE_XML_DESCRIPTION</description>
+
+	<files>
+		<filename plugin="bixsystem">bixsystem.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<languages>
+		<language tag="nl-NL">language/nl-NL/nl-NL.plg_system_bixsystem.ini</language>
+		<language tag="nl-NL">language/nl-NL/nl-NL.plg_system_bixsystem.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+
+				<field name="allowedGroup" type="sql" default="" label="Toegestane groep" query="SELECT virtuemart_shoppergroup_id, shopper_group_name FROM #__virtuemart_shoppergroups WHERE published=1 ORDER BY ordering" key_field="virtuemart_shoppergroup_id" value_field="shopper_group_name">
+				</field>
+				<field name="profileItemid" type="menuitem"
+					default=""
+					label="Menuitem gebruikersprofiel"
+					size="1"
+				/>
+				<field name="api_url" type="text" default="" label="Postcode.nl API url"
+					description=""
+					required="false" filter="safehtml" /> 
+
+				<field name="api_key" type="text" default="" label="API key"
+					description=""
+					required="false" filter="safehtml" /> 
+
+				<field name="api_secret" type="text" default="" label="API secret"
+					description=""
+					required="false" filter="safehtml" /> 
+
+			</fieldset>
+		</fields>
+	</config>
+</extension>

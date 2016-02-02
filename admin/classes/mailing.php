@@ -119,13 +119,13 @@ class BixMailingMailing extends JObject {
 		if (empty($this->referentie)) return $user_id;
 		$db = JFactory::getDbo();
 		//13 voor klantnummer in referentie geeft alleen aangeteknd aan, en kan gestript worden in de match
-		$klantnrRef = (strlen($this->referentie) > 3 && substr($this->referentie, 0, 2) == '13') ? substr($this->referentie, 2) : $this->referentie;
+		$klantnrRef = intval($this->referentie, 10);
 		$db->setQuery(
 			$db->getQuery(true)
 				->select("user_id")
 				->from("#__user_profiles")
 				->where("profile_key = 'profile.klantnummer'")
-				->where("profile_value = '\"13$klantnrRef\"'")
+				->where("profile_value = '\"$klantnrRef\"'")
 				->order("user_id ASC")
 			, 0, 1
 		);
@@ -139,7 +139,7 @@ class BixMailingMailing extends JObject {
 					->where("profile_key = 'profile.klantnummer'")
 					->where("(".
 						"profile_value = '\"$this->referentie\"'". " OR " .
-						"profile_value = '\"13" . substr($this->referentie, 0, 3) . "\"'".
+						"profile_value = '\"" . substr($this->referentie, 0, 5) . "\"'".
 					")")
 					->order("user_id ASC")
 				, 0, 1

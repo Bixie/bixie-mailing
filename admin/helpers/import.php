@@ -241,7 +241,7 @@ class BixImport extends JObject {
 					//weight to gram
 					$bixMailing->gewicht *= 1000;
 
-					$bixMailing->set('aang', (strlen($bixMailing->referentie) > 3 && substr($bixMailing->referentie, 0, 2) == '13'));
+					$bixMailing->set('aang', (strlen($bixMailing->referentie) > 5 && substr($bixMailing->referentie, -1) == 'A'));
 					$bixMailing->set('state', 0);
 					$bixMailing->set('klantnummer', 0);
 					$bixMailing->set('status', 'incompleet');

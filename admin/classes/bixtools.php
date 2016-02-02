@@ -297,7 +297,7 @@ abstract class BixTools {
 			}
 		} else {
 			if ($filename == 'jquery') {
-				if (JFactory::getApplication()->get('jquery', false)) return;
+				if (BIX_ISADMIN || JFactory::getApplication()->get('jquery', false)) return;
 				$path = BIX_JQUERY_PATH;
 				$filename .= '-' . BIX_JQUERY_VERSION;
 				JFactory::getApplication()->set('jquery', true);

@@ -236,7 +236,32 @@
 					size="30"
 					/>
 
-			<field name="mailtype" type="list"
+			<field
+					name="gls_customer_number"
+					type="glscustomernumber"
+                    label="GLS klantnummer"
+                    description="Kies eventueel een afwijkend GLS nummer"
+					/>
+
+            <field
+                    name="api_username"
+                    type="text"
+                    description="Gebruikersnaam voor de API toegang"
+                    filter="string"
+                    label="API gebruikersnaam"
+                    size="30"
+            />
+
+            <field
+                    name="api_private_key"
+                    type="text"
+                    description="Sleutel voor de API toegang"
+                    filter="string"
+                    label="API private"
+                    size="30"
+            />
+
+            <field name="mailtype" type="list"
 				   description="PLG_USER_BIXMAILINGSETTINGS_MAILTYPE_DESC"
 				   label="PLG_USER_BIXMAILINGSETTINGS_MAILTYPE_LABEL"
 				   default="aang"

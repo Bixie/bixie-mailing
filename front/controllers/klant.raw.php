@@ -154,10 +154,10 @@ class BixmailingControllerKlant extends JControllerLegacy {
 		if ($data['id'] > 0) {
 			$user = JFactory::getUser($data['id']);
 			$user->bind($data);
-			$user->groups = array(JComponentHelper::getParams('com_users')->get('new_usertype', 2));
 		} else {
 			$user = new JUser();
 			$user->id = 0;
+			$user->groups = array(JComponentHelper::getParams('com_users')->get('new_usertype', 2));
 			$user->bind($data);
 		}
 

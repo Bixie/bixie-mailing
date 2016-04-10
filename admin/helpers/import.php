@@ -122,14 +122,13 @@ class BixImport extends JObject {
 					//date
 					$bixMailing->aangemeld = JFactory::getDate($bixMailing->aangemeld)->toSql();
 					//url
-					if (!empty($bixMailing->trace_btl)) {
-						$bixMailing->trace_url = 'http://www.postnlpakketten.nl/klantenservice/tracktrace/basicsearch.aspx?lang=nl&B=' .
-							$bixMailing->trace_btl . '&I=True';
+					$code = $bixMailing->trace_btl ? : $bixMailing->trace_nl;
+					$bixMailing->trace_url = sprintf('https://www.internationalparceltracking.com/main.aspx#/track/%s/%s/%s',
+						$code,
+						$bixMailing->land,
+						strtoupper(str_replace(' ', '', $bixMailing->postcode))
+					);
 
-					} else {
-						$bixMailing->trace_url = 'http://www.postnlpakketten.nl/klantenservice/tracktrace/basicsearch.aspx?lang=nl&B=' .
-							$bixMailing->trace_nl . '&P=' . strtoupper(str_replace(' ', '', $bixMailing->postcode));
-					}
 					$bixMailing->set('aang', (substr($bixMailing->type, 0, 11) == 'aangetekend'));
 					$bixMailing->set('state', 0);
 					$bixMailing->set('klantnummer', 0);

@@ -292,6 +292,9 @@ class PlgUserProfile_vos extends JPlugin {
 		$user = JFactory::getUser();
 		if (!$user->authorise('core.admin')) {
 			$form->setFieldAttribute('klantnummer', 'readonly', true, 'profile');
+			$form->setFieldAttribute('api_username', 'readonly', true, 'profile');
+			$form->setFieldAttribute('api_private_key', 'readonly', true, 'profile');
+			$form->setFieldAttribute('gls_customer_number', 'type', 'hidden', 'profile');
 		}
 		if ($name == 'com_users.registration') {
 			foreach ($form->getFieldset('bixmailingsettings') as $field) {

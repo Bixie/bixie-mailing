@@ -76,7 +76,7 @@ abstract class BixHelper {
 		$maildata['tekst'] = str_replace('{site_url}', $maildata['siteurl'], $maildata['tekst']);
 		$maildata['tekst'] = str_replace('{site_naam}', $maildata['sitename'], $maildata['tekst']);
 		$maildata['bcc'] = JArrayHelper::getValue($maildata, 'bcc', '');
-		$maildata['attachment'] = JArrayHelper::getValue($maildata, 'attachment', '');
+		$maildata['attachment'] = JArrayHelper::getValue($maildata, 'attachment', null);
 		$body = MarkdownExtra::defaultTransform(nl2br($maildata['tekst']));
 		//template
 		if (file_exists(BIX_PATH_ADMIN_ASSETS . '/mailtemplate.html')) {

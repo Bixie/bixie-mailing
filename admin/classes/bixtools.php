@@ -229,7 +229,6 @@ abstract class BixTools {
 	 * @return void
 	 */
 	public static function upload () {
-		self::assetJs('jquery');
 		self::uikit();
 		if (!self::config('minifyJs')) {
 			self::asset('js', 'jquery.ui.widget', BIX_JS . 'uploader/');
@@ -245,7 +244,6 @@ abstract class BixTools {
 	 * @return void
 	 */
 	public static function filetree () {
-		self::assetJs('jquery');
 		self::uikit();
 		self::asset('js', 'jqueryFileTree', BIX_JS . 'jqueryFileTree/');
 		self::asset('css', 'jqueryFileTree', BIX_JS . 'jqueryFileTree/');
@@ -256,18 +254,12 @@ abstract class BixTools {
 	 * @return void
 	 */
 	public static function uikit () {
-		self::assetJs('jquery');
-		if (JFactory::getApplication()->get('uikit', false)) {
-			self::assetJs('bixtools');
-			self::assetJs('ajaxsubmit');
-			return;
-		}
-		self::asset('js', 'uikit.min', BIX_ADMIN_ASSETS . 'js/');
-		self::asset('js', 'notify.min', BIX_ADMIN_ASSETS . 'js/');
-		self::asset('js', 'jquery.hotkeys', BIX_JS . 'vendor/');
-		self::assetJs('bixtools');
-		self::assetJs('ajaxsubmit');
-		JFactory::getApplication()->set('uikit', true);
+
+		plgSystemBixsystem::loadJsAssets([
+			BIX_JS . 'vendor/jquery.hotkeys.js',
+			BIX_JS . 'bixtools.js',
+			BIX_JS . 'ajaxsubmit.js'
+		]);
 	}
 
 	/**
@@ -285,22 +277,21 @@ abstract class BixTools {
 				jimport('joomla.filesystem.file');
 				$parts = explode('.', $filename);
 				//algemene files
-				$files = JFolder::files(BIX_PATH_JS . '/src/', '.js');
+				$files = JFolder::files(BIX_PATH_JS . '/src', '.js', false, true);
 				foreach ($files as $file) {
-					self::asset('js', basename($file, '.js'), BIX_JS . 'src/');
+					self::asset('js', $file);
 				}
 				//admin/front files
-				$files = JFolder::files(BIX_PATH_JS . '/src/' . $parts[1] . '/', '.js');
+				$files = JFolder::files(BIX_PATH_JS . '/src/' . $parts[1] . '', '.js', false, true);
 				foreach ($files as $file) {
-					self::asset('js', basename($file, '.js'), BIX_JS . 'src/' . $parts[1] . '/');
+					self::asset('js', $file);
 				}
 			}
 		} else {
 			if ($filename == 'jquery') {
-				if (BIX_ISADMIN || JFactory::getApplication()->get('jquery', false)) return;
-				$path = BIX_JQUERY_PATH;
-				$filename .= '-' . BIX_JQUERY_VERSION;
-				JFactory::getApplication()->set('jquery', true);
+				if (BIX_ISADMIN) return;
+				JHtml::_('jquery.framework');
+				return;
 			}
 			if (self::config('minifyJs')) {
 				$filename .= '.min';
@@ -328,11 +319,17 @@ abstract class BixTools {
 	 * @return void
 	 */
 	protected static function asset ($type, $filename, $path = '') {
-		if (substr($path, -1) != '/') $path .= '/';
+		if ($path && substr($path, -1) != '/') $path .= '/';
 		$file = $path . $filename;
 		switch ($type) {
 			case 'js':
-				JFactory::getDocument()->addScript($file . '.js');
+				if (substr($file, -3) != '.js') {
+					$file .= '.js';
+				}
+				if (stripos($file, JPATH_ROOT) !== 0) {
+					$file = JPATH_ROOT . $file;
+				}
+				plgSystemBixsystem::loadJsAssets($file, false);
 				break;
 			case 'css':
 				JFactory::getDocument()->addStylesheet($file . '.css');

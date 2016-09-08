@@ -51,7 +51,7 @@ class BixImport extends JObject {
 		'params' => array(
 			'Pakketnummer' => 'ordernummer',
 			'GP_nummer' => 'klantordernummer',
-			'vCashSeric' => 'vCashSeric',
+			'vCashServic' => 'vCashServic',
 			'Exp' => 'Exp',
 			'SMS' => 'SMS'
 		)

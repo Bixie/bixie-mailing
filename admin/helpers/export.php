@@ -37,6 +37,9 @@ class BixExport extends JObject {
 			if (in_array($rawLabel, array('Pakketnummer', 'GP_nummer', 'Track_ID'))) {
 				$cellParams['numberFormat'] = 'integer';
 			}
+			if ($rawLabel == 'Printdatum') {
+				$cellParams['isDate'] = true;
+			}
 			$labelMap[$col] = $cellParams;
 			$row->cell(BixXls::newCell($rawLabel, $params));
 			$col++;
@@ -47,6 +50,9 @@ class BixExport extends JObject {
 			$col = 0;
 			foreach ($rawRow as $value) {
 				$params = $labelMap[$col];
+                if (!empty($params['isDate'])) {
+                    $value = substr($value, 0, 10);
+                }
 				$row->cell(BixXls::newCell($value, $params));
 				$col++;
 			}
@@ -88,6 +94,9 @@ class BixExport extends JObject {
 			if (in_array($rawLabel, array('KO_OrderNummer', 'KOR_KlantOrderRegelNummer', 'KOR_PG_KlantAanbiederId'))) {
 				$cellParams['numberFormat'] = 'integer';
 			}
+            if ($rawLabel == 'KO_KlantOrderDatumTijd') {
+                $cellParams['isDate'] = true;
+            }
 			$labelMap[$col] = $cellParams;
 			$row->cell(BixXls::newCell($rawLabel, $params));
 			$col++;
@@ -98,7 +107,10 @@ class BixExport extends JObject {
 			$col = 0;
 			foreach ($rawRow as $value) {
 				$params = $labelMap[$col];
-				$row->cell(BixXls::newCell($value, $params));
+                if (!empty($params['isDate'])) {
+                    $value = substr($value, 0, 4).'-'.substr($value, 4, 2).'-'.substr($value, 6, 2);
+                }
+                $row->cell(BixXls::newCell($value, $params));
 				$col++;
 			}
 			$tab->row($row);

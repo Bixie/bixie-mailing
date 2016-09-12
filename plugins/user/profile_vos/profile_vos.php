@@ -295,6 +295,7 @@ class PlgUserProfile_vos extends JPlugin {
 			$form->setFieldAttribute('api_username', 'readonly', true, 'profile');
 			$form->setFieldAttribute('api_private_key', 'readonly', true, 'profile');
 			$form->setFieldAttribute('gls_customer_number', 'type', 'hidden', 'profile');
+			$form->setFieldAttribute('mail_admin_onparcel', 'type', 'hidden', 'profile');
 		}
 		if ($name == 'com_users.registration') {
 			foreach ($form->getFieldset('bixmailingsettings') as $field) {

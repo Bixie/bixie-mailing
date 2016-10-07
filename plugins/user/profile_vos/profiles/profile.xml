@@ -294,8 +294,8 @@
 				   label="Admin mail bij pakket"
 				   default="1"
 					>
-				<option value="1">Ja</option>
-				<option value="0">Nee</option>
+				<option value="always">Ja</option>
+				<option value="ignore">Nee</option>
 			</field>
 
 			<field name="activationKey" type="hidden" value="" />

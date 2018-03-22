@@ -137,7 +137,7 @@ jQuery(function ($) {
                 //files klaarzetten
                 var $this = this, filesFound = false, conversions = 0;
                 $.each(uploadedFiles, function (index, file) {
-                    var uploadInfoEl = $('[data-filehash="' + file.hash + '"]'), validFile = (['Gls', 'Postnl'].indexOf(file.type) !== -1),
+                    var uploadInfoEl = $('[data-filehash="' + file.hash + '"]'), validFile = (['Gls', 'Postnl', 'Parcelware'].indexOf(file.type) !== -1),
                         req = {
                             hash: file.hash
                         };
@@ -148,13 +148,17 @@ jQuery(function ($) {
                         conversions++;
                         $.post($this.options.ajaxUrl, req, '', "json")
                             .done(function (data) {
+                                var fileType = file.type;
                                 if (data.success) {
                                     data.result.file.hash = data.result.file.url.slice(-32);
                                     uploadInfoEl.find('.bix-convert-text').hide();
                                     uploadInfoEl.find('.bix-filelist').append($this.createFileInfo(data.result.file));
-                                    uploadInfoEl.find('.bix-filebuttons').append($this.createFileButtons(file.type));
+                                    if (file.type === 'Parcelware') {
+                                        fileType = 'Postnl'
+                                    }
+                                    uploadInfoEl.find('.bix-filebuttons').append($this.createFileButtons(fileType));
                                     $this.buttonEvents(uploadInfoEl);
-                                    $this.showDataTab(file.type);
+                                    $this.showDataTab(fileType);
                                     conversions--;
                                 }
                                 if (conversions === 0) {

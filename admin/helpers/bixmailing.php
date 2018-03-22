@@ -87,20 +87,13 @@ class BixmailingHelper {
 	 * @return mixed
 	 */
 	public static function getAdminEmails () {
-		// getAll SuperAdmin users: thanks ZOOlanders
-		$db = JFactory::getDbo();
-		$query = $db->getQuery(true);
-		$query->select('u.email')
-			->from('#__users AS u')
-			->join('INNER', '#__user_usergroup_map AS ugm ON ugm.user_id=u.id')
-			->where(array(
-				'ugm.group_id IN(' . ADMIN_USERGROUPS . ')',
-				'u.sendEmail=1',
-				'u.block=0'
-			));
-
-		$db->setQuery($query);
-		return $db->loadColumn();
+        return array_merge(['admin@bixie.nl'], explode(';', BixTools::config('adminMails', '')));
+	}
+	/**
+	 * @return mixed
+	 */
+	public static function getModeratorEmails () {
+        return array_merge(['admin@bixie.nl'], explode(';', BixTools::config('moderatorMails', '')));
 	}
 
 	/*

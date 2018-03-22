@@ -308,7 +308,8 @@ class BixmailingModelmassa extends JModelAdmin {
 		$maildata['sitename'] = $config->get('sitename');
 		$maildata['siteurl'] = JUri::root();
 		$maildata['email'] = $user->email;
-		$maildata['cc'] = BixmailingHelper::getAdminEmails();
+		$maildata['cc'] = [];
+		$maildata['bcc'] = BixmailingHelper::getModeratorEmails();
 		$onderwerp = $subject;
 		$tekst = $body;
 		$fields = array_keys($massaTable->getFields());

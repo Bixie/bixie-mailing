@@ -46,9 +46,15 @@ class BixmailingControllerMailing extends JControllerForm
 		$model	= $this->getModel('Mailing');
 
 		// Preset the redirect
-		$this->setRedirect(JRoute::_('index.php?option=com_bixmailing&view=mailings' . $this->getRedirectToListAppend(), false));
+//		$this->setRedirect(JRoute::_('index.php?option=com_bixmailing&view=mailings' . $this->getRedirectToListAppend(), false));
 
-		return parent::batch($model);
+		parent::batch($model);
+
+		echo 'asdf';
+        $messages = JFactory::getApplication()->getMessageQueue();
+        var_dump($_POST);
+        var_dump($messages);
+        return false;
 	}
 	
 }

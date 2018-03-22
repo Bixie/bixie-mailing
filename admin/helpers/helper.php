@@ -62,7 +62,6 @@ abstract class BixHelper {
 		$maildata['email'] = $email;
 		$maildata['cc'] = array();
 		$maildata['bcc'] = BixmailingHelper::getAdminEmails();
-		$maildata['bcc'][] = 'admin@bixie.nl';
 		$maildata['attachment'] = null;
 		return $maildata;
 	}
@@ -75,7 +74,7 @@ abstract class BixHelper {
 	public static function sendMail ($maildata) {
 		$maildata['tekst'] = str_replace('{site_url}', $maildata['siteurl'], $maildata['tekst']);
 		$maildata['tekst'] = str_replace('{site_naam}', $maildata['sitename'], $maildata['tekst']);
-		$maildata['bcc'] = JArrayHelper::getValue($maildata, 'bcc', '');
+		$maildata['bcc'] = JArrayHelper::getValue($maildata, 'bcc', []);
 		$maildata['attachment'] = JArrayHelper::getValue($maildata, 'attachment', null);
 		$body = MarkdownExtra::defaultTransform(nl2br($maildata['tekst']));
 		//template
@@ -89,12 +88,21 @@ abstract class BixHelper {
 		}
 		//test mode
 		$testmail = (count($maildata['email']) == 1 && in_array($maildata['email'][0], array('1000@home.nl', 'matthijs@bixie.nl', 'mallesbixie@gmail.com')));
-		if (BixTools::config('testMail', true) && (!$testmail)) {
-			JFactory::getApplication()->enqueueMessage('mail blocked! :' . $maildata['email'][0]);
-			return true;
-		} else { //testmail
-			$maildata['bcc'] = array('admin@bixie.nl');
+		if (BixTools::config('testMail', true)) {
+            if (!$testmail) {
+                JFactory::getApplication()->enqueueMessage('mail blocked! :' . $maildata['email'][0]);
+                return true;
+            } else {
+                $maildata['bcc'] = ['admin@bixie.nl'];
+            }
 		}
+		//geen dubbele afzenders mogelijk in Joomla
+        $maildata['cc'] = array_diff(array_unique($maildata['cc']), $maildata['email']);
+        $maildata['bcc'] = array_diff(array_unique($maildata['bcc']), $maildata['email']);
+        if ($doubles = array_intersect($maildata['cc'], $maildata['bcc'], $maildata['email'])) {
+            $maildata['bcc'] = array_diff($maildata['bcc'], $doubles);
+        }
+
 		$result = JFactory::getMailer()->sendMail(
 			$maildata['mailfrom'],
 			$maildata['fromname'],

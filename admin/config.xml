@@ -32,6 +32,13 @@
             <option value="1">JYES</option>
             <option value="0">JNO</option>
         </field>
+        <field name="adminMails" type="text" default=""
+               label="Admin emails"
+               description="Meerdere adressen scheiden met een puntkomma" size="40"/>
+        <field name="moderatorMails" type="text" default=""
+               label="Orderbeheer emails"
+               description="Meerdere adressen scheiden met een puntkomma" size="40"/>
+
         <field name="defaultFileMail" type="text" default=""
                label="COM_BIXMAILING_MAILSETTINGS_DEFAULT_FILEMAIL"
                description="COM_BIXMAILING_MAILSETTINGS_DEFAULT_FILEMAIL_DESC" size="40"/>

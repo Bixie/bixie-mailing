@@ -56,7 +56,12 @@ class BixmailingTablemailing extends JTable {
 	 * Overloaded check function
 	 */
 	public function check () {
-		$this->_db->setQuery($this->_db->getQuery(true)->select("id")->from("#__bm_mailing")->where("trace_nl = '$this->trace_nl'"));
+		$this->_db->setQuery($this->_db->getQuery(true)
+            ->select("id")
+            ->from("#__bm_mailing")
+            ->where("trace_nl = '$this->trace_nl'")
+            ->where("aangemeld = '$this->aangemeld'")
+        );
 		$result = $this->_db->loadResult();
 		if ($result && $result != $this->id) {
 			$this->setError('Tracecode bestaat al!');

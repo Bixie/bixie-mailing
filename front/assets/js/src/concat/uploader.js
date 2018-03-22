@@ -2216,7 +2216,8 @@ $.each( { show: "fadeIn", hide: "fadeOut" }, function( method, defaultEffect ) {
                 mailfiles: 'Mailen',
                 converting: {
                     Gls: 'GLS exportbestand wordt geconverteerd...',
-                    Postnl: 'Post NL exportbestand wordt geconverteerd...'
+                    Postnl: 'Post NL exportbestand wordt geconverteerd...',
+                    Parcelware: 'Parcelware exportbestand wordt geconverteerd...'
                 },
                 downloaden: 'Downloaden'
             }
@@ -2324,6 +2325,9 @@ $.each( { show: "fadeIn", hide: "fadeOut" }, function( method, defaultEffect ) {
             }
             if (filename.match(/^csvExport/i)) {
                 type = 'Postnl';
+            }
+            if (filename.match(/^Export\s/i)) {
+                type = 'Parcelware';
             }
             if (filename.match(/^LLShipment/i)) {
                 type = 'Gls';

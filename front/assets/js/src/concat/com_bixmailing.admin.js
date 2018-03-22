@@ -167,7 +167,7 @@ jQuery(function ($) {
     (function () {
         //vars
         var currentContent, currentSubject,
-            ajaxUrl = '/index.php?option=com_bixmailing&format=raw',
+            ajaxUrl = 'index.php?option=com_bixmailing&format=raw',
             batchtaskInput = $('#batch-task'),
             taskInput = $('[name=task]'),
             subjectInput = $('[name*=subject]'),
